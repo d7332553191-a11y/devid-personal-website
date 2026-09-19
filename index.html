@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Devid | Personal Website</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0f14;
+            color: white;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: #111820;
+            padding: 15px 10px;
+            text-align: center;
+            border-bottom: 1px solid #26313b;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #00bfff;
+        }
+
+        section {
+            padding: 70px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        #home {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #home h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        #typing {
+            color: #00bfff;
+            font-size: 22px;
+            min-height: 35px;
+        }
+
+        h2 {
+            font-size: 30px;
+            margin-bottom: 25px;
+            color: #00bfff;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #121a22;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #26313b;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00bfff;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 20px;
+            background: #00bfff;
+            color: #000;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        #join-form {
+            max-width: 500px;
+            margin: 25px auto 0;
+            background: #121a22;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #26313b;
+        }
+
+        #join-form input {
+            width: 100%;
+            padding: 13px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #37434f;
+            background: #0b0f14;
+            color: white;
+            outline: none;
+        }
+
+        #join-form input:focus {
+            border-color: #00bfff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 15px;
+            background: #111820;
+            border-top: 1px solid #26313b;
+        }
+
+        #topBtn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            display: none;
+            background: #00bfff;
+            color: black;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 999;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 5px;
+                font-size: 14px;
+            }
+
+            #home h1 {
+                font-size: 32px;
+            }
+
+            #typing {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 55px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#members">Members</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home -->
+    <section id="home">
+        <h1>Welcome 👋</h1>
+
+        <div id="typing"></div>
+
+        <a class="btn" href="#projects">
+            View My Projects
+        </a>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <h2>👤 About Me</h2>
+
+        <p>
+            Hi! I'm Devid. I am interested in technology,
+            website development, coding and learning new things.
+        </p>
+
+        <p style="margin-top:15px;">
+            This is my personal website where I share my projects,
+            skills and future work.
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2>🛠️ My Skills</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>🌐 HTML</h3>
+                <p>Building the structure of modern websites.</p>
+            </div>
+
+            <div class="card">
+                <h3>🎨 CSS</h3>
+                <p>Creating responsive and attractive designs.</p>
+            </div>
+
+            <div class="card">
+                <h3>⚡ JavaScript</h3>
+                <p>Adding interactive features to websites.</p>
+            </div>
+
+            <div class="card">
+                <h3>🐙 GitHub</h3>
+                <p>Managing and publishing my projects.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2>💻 My Projects</h2>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>🌐 My First Website</h3>
+
+                <p>
+                    My first personal portfolio website,
+                    created using HTML and CSS.
+                </p>
+
+                <a
+                    class="btn"
+                    href="https://github.com/"
+                    target="_blank">
+                    View Project
+                </a>
+            </div>
+
+            <div class="card">
+                <h3>💻 My Web Project</h3>
+
+                <p>
+                    A creative web project built by me
+                    using HTML, CSS and JavaScript.
+                </p>
+
+                <a
+                    class="btn"
+                    href="https://github.com/"
+                    target="_blank">
+                    View Project
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Members -->
+    <section id="members">
+
+        <h2>👥 Join Our Members</h2>
+
+        <p>
+            Become a member of my website.
+        </p>
+
+        <form id="join-form">
+
+            <input
+                type="text"
+                id="member-name"
+                placeholder="Your Name"
+                required>
+
+            <input
+                type="email"
+                id="member-email"
+                placeholder="Your Email"
+                required>
+
+            <button
+                type="submit"
+                class="btn">
+                ➕ Join Now
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2>📩 Contact Me</h2>
+
+        <p>
+            You can connect with me through Instagram.
+        </p>
+
+        <a
+            class="btn"
+            href="https://www.instagram.com/Indian_boy_872681/"
+            target="_blank">
+            📸 Instagram
+        </a>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Devid. All Rights Reserved.</p>
+        <p>Made with ❤️ using HTML, CSS & JavaScript.</p>
+    </footer>
+
+    <!-- Back To Top -->
+    <button id="topBtn" onclick="goTop()">↑</button>
+
+    <script>
+
+        /* Typing Animation */
+
+        const messages = [
+            "Hi, I'm Devid",
+            "Welcome to my personal website",
+            "How can I help you?"
+        ];
+
+        let messageIndex = 0;
+        let charIndex = 0;
+
+        const typing = document.getElementById("typing");
+
+        function typeText() {
+
+            if (charIndex < messages[messageIndex].length) {
+
+                typing.textContent +=
+                    messages[messageIndex].charAt(charIndex);
+
+                charIndex++;
+
+                setTimeout(typeText, 80);
+
+            } else {
+
+                setTimeout(deleteText, 1500);
+            }
+        }
+
+        function deleteText() {
+
+            if (charIndex > 0) {
+
+                typing.textContent =
+                    messages[messageIndex]
+                    .substring(0, charIndex - 1);
+
+                charIndex--;
+
+                setTimeout(deleteText, 40);
+
+            } else {
+
+                messageIndex =
+                    (messageIndex + 1) % messages.length;
+
+                setTimeout(typeText, 400);
+            }
+        }
+
+        typeText();
+
+
+        /* Members Form */
+
+        document
+            .getElementById("join-form")
+            .addEventListener("submit", function(event) {
+
+                event.preventDefault();
+
+                const name =
+                    document.getElementById("member-name").value;
+
+                alert(
+                    "🎉 Welcome " +
+                    name +
+                    "! You have joined the members."
+                );
+
+                this.reset();
+            });
+
+
+        /* Back To Top */
+
+        const topBtn =
+            document.getElementById("topBtn");
+
+        window.onscroll = function() {
+
+            if (
+                document.body.scrollTop > 300 ||
+                document.documentElement.scrollTop > 300
+            ) {
+
+                topBtn.style.display = "block";
+
+            } else {
+
+                topBtn.style.display = "none";
+            }
+        };
+
+        function goTop() {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+    </script>
+
+</body>
+      </html>
