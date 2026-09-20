@@ -619,6 +619,29 @@ const supabase = window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY
 );
-    
+  <script>
+async function uploadNote() {
+    const fileInput = document.getElementById("noteFile");
+    const file = fileInput.files[0];
+
+    if (!file) {
+        alert("Pehle PDF select karo.");
+        return;
+    }
+
+    const fileName = Date.now() + "_" + file.name;
+
+    const { error } = await supabase.storage
+        .from("notes")
+        .upload(fileName, file);
+
+    if (error) {
+        alert("Upload failed: " + error.message);
+        return;
+    }
+
+    alert("✅ Note successfully upload ho gaya!");
+}
+</script>  
 </body>
 </html>
