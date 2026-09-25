@@ -114,6 +114,13 @@
 <script>
 function openClass(classNumber) {
     function openSubject(subject) {
+        function openChapter(chapter) {
+    document.getElementById("classContent").innerHTML =
+        "<h3>📖 " + chapter + "</h3>" +
+        "<p>Notes for this chapter</p>" +
+        "<button>⬆️ Upload Note</button>" +
+        "<button>⬇️ Download Notes</button>";
+        }
     document.getElementById("classContent").innerHTML =
         "<h3>📚 " + subject + "</h3>" +
         "<p>Select a chapter:</p>" +
