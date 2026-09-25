@@ -152,11 +152,36 @@ function openChapter(chapter) {
         <button>⬇️ Download Notes</button>
     `;
 }
+async function uploadNote() {
+    const fileInput = document.getElementById("noteFile");
+    const status = document.getElementById("uploadStatus");
 
+    if (!fileInput.files.length) {
+        status.textContent = "Pehle file select karo.";
+        return;
+    }
+
+    const file = fileInput.files[0];
+    const filePath = Date.now() + "_" + file.name;
+
+    status.textContent = "Uploading...";
+
+    const { error } = await supabaseClient
+        .storage
+        .from("notes")
+        .upload(filePath, file);
+
+    if (error) {
+        status.textContent = "Upload failed: " + error.message;
+        return;
+    }
+
+    status.textContent = "✅ Note uploaded successfully!";
+    }
 </script>
   <script>
 const SUPABASE_URL = "https://jzpzbalkwxelkienhccu.supabase.co";
-const SUPABASE_KEY = sb_publishable_kS6tdD3PQ_d6Zm4MAwnaNw_W3CvNdFy
+const SUPABASE_KEY = "sb_publishable_kS6tdD3PQ_d6Zm4MAwnaNw_W3CvNdFy"
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
