@@ -149,7 +149,7 @@ function openChapter(chapter) {
         <input type="file" id="noteFile" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
         <button onclick="uploadNote()">📤 Upload Note</button>
 <p id="uploadStatus"></p>
-        <button>⬇️ Download Notes</button>
+        <button onclick="downloadNotes()">⬇️ Download Notes</button>
     `;
 }
 async function uploadNote() {
@@ -177,6 +177,31 @@ async function uploadNote() {
     }
 
     status.textContent = "✅ Note uploaded successfully!";
+    }
+    async function downloadNotes() {
+    const { data, error } = await supabaseClient
+        .storage
+        .from("notes")
+        .list();
+
+    if (error) {
+        alert("Notes load nahi ho sake: " + error.message);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        alert("Abhi koi note available nahi hai.");
+        return;
+    }
+
+    const file = data[0];
+
+    const { data: urlData } = supabaseClient
+        .storage
+        .from("notes")
+        .getPublicUrl(file.name);
+
+    window.open(urlData.publicUrl, "_blank");
     }
 </script>
   <script>
