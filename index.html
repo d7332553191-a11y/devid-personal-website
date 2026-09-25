@@ -74,7 +74,24 @@
 
 <section id="notes">
     <h2>📚 Study Notes</h2>
-    <p>Class 1 to Class 12 Notes</p>
+    <p>Select your class</p>
+
+    <div class="class-grid">
+        <button onclick="openClass(1)">Class 1</button>
+        <button onclick="openClass(2)">Class 2</button>
+        <button onclick="openClass(3)">Class 3</button>
+        <button onclick="openClass(4)">Class 4</button>
+        <button onclick="openClass(5)">Class 5</button>
+        <button onclick="openClass(6)">Class 6</button>
+        <button onclick="openClass(7)">Class 7</button>
+        <button onclick="openClass(8)">Class 8</button>
+        <button onclick="openClass(9)">Class 9</button>
+        <button onclick="openClass(10)">Class 10</button>
+        <button onclick="openClass(11)">Class 11</button>
+        <button onclick="openClass(12)">Class 12</button>
+    </div>
+
+    <div id="classContent"></div>
 </section>
 
 <section id="login">
@@ -94,6 +111,13 @@
         Contact on Instagram
     </a>
 </section>
-
+<script>
+function openClass(classNumber) {
+    document.getElementById("classContent").innerHTML =
+        "<h3>📚 Class " + classNumber + "</h3>" +
+        "<p>Subjects will be added here.</p>";
+}
+</script>
+    
 </body>
 </html>
