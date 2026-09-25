@@ -6,118 +6,12 @@
 
     <title>Study with Devid</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f1720;
-            color: white;
-            text-align: center;
-        }
+    <script>
 
-        nav {
-            padding: 15px;
-            background: #111820;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 8px;
-        }
-
-        section {
-            padding: 70px 20px;
-        }
-
-        #home {
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 {
-            font-size: 40px;
-            color: #00bfff;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 20px;
-            margin: 10px;
-            background: #00bfff;
-            color: black;
-            text-decoration: none;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-
-<body>
-
-<nav>
-    <a href="#home">Home</a>
-    <a href="#notes">📚 Notes</a>
-    <a href="#login">🔐 Login</a>
-    <a href="#chat">💬 Chat</a>
-    <a href="#contact">📱 Contact</a>
-</nav>
-
-<section id="home">
-    <h1>Welcome to Study with Devid</h1>
-    <p>📚 Study • Share Notes • Learn Together</p>
-</section>
-
-<section id="notes">
-    <h2>📚 Study Notes</h2>
-    <p>Select your class</p>
-
-    <div class="class-grid">
-        <button onclick="openClass(1)">Class 1</button>
-        <button onclick="openClass(2)">Class 2</button>
-        <button onclick="openClass(3)">Class 3</button>
-        <button onclick="openClass(4)">Class 4</button>
-        <button onclick="openClass(5)">Class 5</button>
-        <button onclick="openClass(6)">Class 6</button>
-        <button onclick="openClass(7)">Class 7</button>
-        <button onclick="openClass(8)">Class 8</button>
-        <button onclick="openClass(9)">Class 9</button>
-        <button onclick="openClass(10)">Class 10</button>
-        <button onclick="openClass(11)">Class 11</button>
-        <button onclick="openClass(12)">Class 12</button>
-    </div>
-
-    <div id="classContent"></div>
-</section>
-
-<section id="login">
-    <h2>🔐 Student Login</h2>
-    <p>Student login system will be added here.</p>
-</section>
-
-<section id="chat">
-    <h2>💬 Student Chat</h2>
-    <p>Students can ask their problems here.</p>
-</section>
-
-<section id="contact">
-    <h2>📱 Contact</h2>
-    <p>Instagram</p>
-    <a class="btn" href="https://www.instagram.com/Indian_boy_872681/" target="_blank">
-        Contact on Instagram
-    </a>
-</section>
-<script>
-
-
-    let currentClass = 0;
+let currentClass = 0;
 
 function openClass(classNumber) {
+
     currentClass = classNumber;
 
     document.getElementById("classContent").innerHTML = `
@@ -133,11 +27,13 @@ function openClass(classNumber) {
     `;
 }
 
+
 function openSubject(subject) {
 
     if (currentClass === 9 || currentClass === 10) {
 
         if (subject === "Science") {
+
             document.getElementById("classContent").innerHTML = `
                 <h3>🔬 Science</h3>
                 <p>Select a subject:</p>
@@ -146,8 +42,27 @@ function openSubject(subject) {
                 <button onclick="openSubject('Chemistry')">🧪 Chemistry</button>
                 <button onclick="openSubject('Biology')">🧬 Biology</button>
             `;
+
             return;
         }
+
+        if (subject === "Social Science") {
+
+            document.getElementById("classContent").innerHTML = `
+                <h3>🌍 Social Science</h3>
+                <p>Select a subject:</p>
+
+                <button onclick="openSubject('History')">📜 History</button>
+                <button onclick="openSubject('Geography')">🌍 Geography</button>
+                <button onclick="openSubject('Civics')">🏛️ Civics</button>
+                <button onclick="openSubject('Economics')">💰 Economics</button>
+            `;
+
+            return;
+        }
+    }
+
+
     document.getElementById("classContent").innerHTML = `
         <h3>📚 ${subject}</h3>
         <p>Select a chapter:</p>
@@ -160,23 +75,39 @@ function openSubject(subject) {
     `;
 }
 
+
 function openChapter(chapter) {
+
     document.getElementById("classContent").innerHTML = `
         <h3>📖 ${chapter}</h3>
         <p>Notes for this chapter</p>
 
-        <input type="file" id="noteFile" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+        <input
+            type="file"
+            id="noteFile"
+            accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+        >
+
+        <br>
+
         <button onclick="uploadNote()">📤 Upload Note</button>
-<p id="uploadStatus"></p>
+
+        <p id="uploadStatus"></p>
+
         <button onclick="downloadNotes()">⬇️ Download Notes</button>
     `;
 }
+
+
 async function uploadNote() {
+
     const fileInput = document.getElementById("noteFile");
     const status = document.getElementById("uploadStatus");
 
     if (!fileInput.files.length) {
+
         status.textContent = "Pehle file select karo.";
+
         return;
     }
 
@@ -191,13 +122,20 @@ async function uploadNote() {
         .upload(filePath, file);
 
     if (error) {
-        status.textContent = "Upload failed: " + error.message;
+
+        status.textContent =
+            "Upload failed: " + error.message;
+
         return;
     }
 
-    status.textContent = "✅ Note uploaded successfully!";
-    }
-    async function downloadNotes() {
+    status.textContent =
+        "✅ Note uploaded successfully!";
+}
+
+
+async function downloadNotes() {
+
     const { data, error } = await supabaseClient
         .storage
         .from("notes")
@@ -206,31 +144,42 @@ async function uploadNote() {
         });
 
     if (error) {
-        alert("Notes load nahi ho sake: " + error.message);
+
+        alert(
+            "Notes load nahi ho sake: " +
+            error.message
+        );
+
         return;
     }
 
     if (!data || data.length === 0) {
+
         alert("Abhi koi note available nahi hai.");
+
         return;
     }
 
     const file = data[0];
 
-    const { data: urlData, error: urlError } = await supabaseClient
-        .storage
-        .from("notes")
-        .createSignedUrl(file.name, 60 * 60);
+    const { data: urlData, error: urlError } =
+        await supabaseClient
+            .storage
+            .from("notes")
+            .createSignedUrl(file.name, 60 * 60);
 
     if (urlError) {
-        alert("Download link nahi bana: " + urlError.message);
+
+        alert(
+            "Download link nahi bana: " +
+            urlError.message
+        );
+
         return;
     }
 
     window.open(urlData.signedUrl, "_blank");
-    }
-</script>
-  <script>
+}
 const SUPABASE_URL = "https://jzpzbalkwxelkienhccu.supabase.co";
 const SUPABASE_KEY = "sb_publishable_kS6tdD3PQ_d6Zm4MAwnaNw_W3CvNdFy"
 );
