@@ -114,37 +114,43 @@
 <script>
 
 function openClass(classNumber) {
-    document.getElementById("classContent").innerHTML =
-        "<h3>📚 Class " + classNumber + "</h3>" +
-        "<p>Select a subject:</p>" +
-        "<button onclick=\"openSubject('Maths')\">📐 Maths</button>" +
-        "<button onclick=\"openSubject('Science')\">🔬 Science</button>" +
-        "<button onclick=\"openSubject('English')\">📖 English</button>" +
-        "<button onclick=\"openSubject('Hindi')\">📝 Hindi</button>" +
-        "<button onclick=\"openSubject('Social Science')\">🌍 Social Science</button>" +
-        "<button onclick=\"openSubject('Computer')\">💻 Computer</button>";
+    document.getElementById("classContent").innerHTML = `
+        <h3>📚 Class ${classNumber}</h3>
+        <p>Select a subject:</p>
+
+        <button onclick="openSubject('Maths')">📐 Maths</button>
+        <button onclick="openSubject('Science')">🔬 Science</button>
+        <button onclick="openSubject('English')">📖 English</button>
+        <button onclick="openSubject('Hindi')">📝 Hindi</button>
+        <button onclick="openSubject('Social Science')">🌍 Social Science</button>
+        <button onclick="openSubject('Computer')">💻 Computer</button>
+    `;
 }
 
 function openSubject(subject) {
-    document.getElementById("classContent").innerHTML =
-        "<h3>📚 " + subject + "</h3>" +
-        "<p>Select a chapter:</p>" +
-        "<button onclick=\"openChapter('Chapter 1')\">Chapter 1</button>" +
-        "<button>Chapter 2</button>" +
-        "<button>Chapter 3</button>" +
-        "<button>Chapter 4</button>" +
-        "<button>Chapter 5</button>";
+    document.getElementById("classContent").innerHTML = `
+        <h3>📚 ${subject}</h3>
+        <p>Select a chapter:</p>
+
+        <button onclick="openChapter('Chapter 1')">Chapter 1</button>
+        <button>Chapter 2</button>
+        <button>Chapter 3</button>
+        <button>Chapter 4</button>
+        <button>Chapter 5</button>
+    `;
 }
 
 function openChapter(chapter) {
-    document.getElementById("classContent").innerHTML =
-        "<h3>📖 " + chapter + "</h3>" +
-        "<p>Notes for this chapter</p>" +
-        "<button>⬆️ Upload Note</button>" +
-        "<button>⬇️ Download Notes</button>";
+    document.getElementById("classContent").innerHTML = `
+        <h3>📖 ${chapter}</h3>
+        <p>Notes for this chapter</p>
+
+        <button>⬆️ Upload Note</button>
+        <button>⬇️ Download Notes</button>
+    `;
 }
 
-        </script>
+</script>
     
 </body>
 </html>
