@@ -196,13 +196,17 @@ async function uploadNote() {
 
     const file = data[0];
 
-    const { data: urlData } = supabaseClient
-        .storage
-        .from("notes")
-        .getPublicUrl(file.name);
+    const { data: urlData, error: urlError } = await supabaseClient
+    .storage
+    .from("notes")
+    .createSignedUrl(file.name, 60 * 60);
 
-    window.open(urlData.publicUrl, "_blank");
-    }
+if (urlError) {
+    alert("Download link nahi bana: " + urlError.message);
+    return;
+}
+
+window.open(urlData.signedUrl, "_blank");
 </script>
   <script>
 const SUPABASE_URL = "https://jzpzbalkwxelkienhccu.supabase.co";
