@@ -148,46 +148,6 @@ function openSubject(subject) {
             `;
             return;
         }
-
-        if (subject === "Social Science") {
-            document.getElementById("classContent").innerHTML = `
-                <h3>🌍 Social Science</h3>
-                <p>Select a subject:</p>
-
-                <button onclick="openSubject('History')">📜 History</button>
-                <button onclick="openSubject('Geography')">🌍 Geography</button>
-                <button onclick="openSubject('Civics')">🏛️ Civics</button>
-                <button onclick="openSubject('Economics')">💰 Economics</button>
-            `;
-            return;
-        }
-    }
-
-    document.getElementById("classContent").innerHTML = `
-        <h3>📚 ${subject}</h3>
-        <p>Select a chapter:</p>
-
-        <button onclick="openChapter('Chapter 1')">Chapter 1</button>
-        <button onclick="openChapter('Chapter 2')">Chapter 2</button>
-        <button onclick="openChapter('Chapter 3')">Chapter 3</button>
-        <button onclick="openChapter('Chapter 4')">Chapter 4</button>
-        <button onclick="openChapter('Chapter 5')">Chapter 5</button>
-    `;
-}
-
-    if (subject === "Social Science") {
-        document.getElementById("classContent").innerHTML = `
-            <h3>🌍 Social Science</h3>
-            <p>Select a subject:</p>
-
-            <button onclick="openSubject('History')">📜 History</button>
-            <button onclick="openSubject('Geography')">🌍 Geography</button>
-            <button onclick="openSubject('Civics')">🏛️ Civics</button>
-            <button onclick="openSubject('Economics')">💰 Economics</button>
-        `;
-        return;
-    }
-
     document.getElementById("classContent").innerHTML = `
         <h3>📚 ${subject}</h3>
         <p>Select a chapter:</p>
