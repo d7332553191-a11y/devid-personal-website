@@ -113,9 +113,20 @@
 </section>
 <script>
 function openClass(classNumber) {
+    function openSubject(subject) {
+    document.getElementById("classContent").innerHTML =
+        "<h3>📚 " + subject + "</h3>" +
+        "<p>Chapters will be added here.</p>";
+    }
     document.getElementById("classContent").innerHTML =
         "<h3>📚 Class " + classNumber + "</h3>" +
-        "<p>Subjects will be added here.</p>";
+        "<p>Select a subject:</p>" +
+"<button onclick=\"openSubject('Maths')\">📐 Maths</button>" +
+"<button onclick=\"openSubject('Science')\">🔬 Science</button>" +
+"<button onclick=\"openSubject('English')\">📖 English</button>" +
+"<button onclick=\"openSubject('Hindi')\">📝 Hindi</button>" +
+"<button onclick=\"openSubject('Social Science')\">🌍 Social Science</button>" +
+"<button onclick=\"openSubject('Computer')\">💻 Computer</button>";
 }
 </script>
     
