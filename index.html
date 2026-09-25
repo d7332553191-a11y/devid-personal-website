@@ -182,7 +182,9 @@ async function uploadNote() {
     const { data, error } = await supabaseClient
         .storage
         .from("notes")
-        .list();
+        .list("", {
+            limit: 100
+        });
 
     if (error) {
         alert("Notes load nahi ho sake: " + error.message);
@@ -197,16 +199,17 @@ async function uploadNote() {
     const file = data[0];
 
     const { data: urlData, error: urlError } = await supabaseClient
-    .storage
-    .from("notes")
-    .createSignedUrl(file.name, 60 * 60);
+        .storage
+        .from("notes")
+        .createSignedUrl(file.name, 60 * 60);
 
-if (urlError) {
-    alert("Download link nahi bana: " + urlError.message);
-    return;
-}
+    if (urlError) {
+        alert("Download link nahi bana: " + urlError.message);
+        return;
+    }
 
-window.open(urlData.signedUrl, "_blank");
+    window.open(urlData.signedUrl, "_blank");
+    }
 </script>
   <script>
 const SUPABASE_URL = "https://jzpzbalkwxelkienhccu.supabase.co";
